@@ -1,0 +1,43 @@
+body {
+    background: #D3D3D3;
+    margin: 0;
+}
+
+.body-wrapper {
+    display: grid;
+    grid-template-areas:
+   	"header header sidebar"
+        "main main sidebar"        
+}
+
+header {
+    margin: 0;
+    grid-area: header;
+}
+
+main {   
+    margin: 0 Auto;
+    grid-area: main;
+}
+
+.main-filter {
+    grid-area: sidebar;
+}
+
+.wrapperout {    
+    display: flex;
+    justify-content: center;    
+    margin: 0 auto;
+}
+
+.wrapperin {    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.title {
+    margin: 0 auto;
+}

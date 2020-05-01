@@ -1,0 +1,48 @@
+{% extends 'base_cars.html' %}
+
+{% block main_content %} 
+
+<div class="wrapperin">
+
+    <table class="table table-bordered table-hover mt-3">
+        <tr>            
+            <th scope="col">Производитель</th>
+            <th scope="col">Модель</th>                
+            <th scope="col">Год</th>
+            <th scope="col">Коробка передач</th> 
+            <th scope="col">Цвет</th>                                 
+            
+        </tr>
+        {% for car in cars %}
+        <tr>            
+            <td>{{ car.maker }}</td>
+            <td>{{ car.car_model }}</td>
+            <td>{{ car.year }}</td>
+            <td>{{ car.get_transmission_display }}</td>
+            <td>{{ car.color }}</td>                        
+            
+        </tr>        
+        {% endfor %}
+    </table>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?{{filter}}&page=1">&laquo; first</a>
+                <a href="?{{filter}}&page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?{{filter}}&page={{ page_obj.next_page_number }}">next</a>
+                <a href="?{{filter}}&page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+</div>
+
+{% endblock main_content %} 
